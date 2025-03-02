@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Task Manager Demo</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .card {
+            border: 1px solid #333;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-backdrop.hidden {
+            display: none;
+        }
+
+        .modal {
+            background: white;
+            margin: 5rem auto;
+            max-width: 500px;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Task Manager Demo</h1>
+
+    <!-- FORM to add a new task -->
+    <form id="taskForm">
+        <label>Task Type:</label>
+        <select name="task_type">
+            <option value="PrescriptionRequest">Prescription Request</option>
+            <option value="ReviewResults">Review Results</option>
+            <option value="PatientCommunication">Patient Communication</option>
+            <option value="SickNotes">Sick Notes</option>
+            <option value="ReferralLetters">Referral Letters</option>
+            <option value="MedicalReports">Medical Reports</option>
+        </select>
+
+        <label>Time in pipeline (days):</label>
+        <input type="number" name="time_in_pipeline" value="1" />
+
+        <!-- Add any other fields you want, e.g. checkboxes for comorbidities, etc. -->
+        <button type="submit">Add Task</button>
+    </form>
+
+    <hr />
+
+    <h2>Tasks</h2>
+    <div id="tasks"></div>
+
+    <!-- Simple modal for editing tasks -->
+    <div class="modal-backdrop hidden">
+        <div class="modal">
+            <form id="editForm">
+                <h3>Edit Task</h3>
+                <label>Task Type:</label>
+                <select name="task_type">
+                    <option value="PrescriptionRequest">Prescription Request</option>
+                    <option value="ReviewResults">Review Results</option>
+                    <option value="PatientCommunication">Patient Communication</option>
+                    <option value="SickNotes">Sick Notes</option>
+                    <option value="ReferralLetters">Referral Letters</option>
+                    <option value="MedicalReports">Medical Reports</option>
+                </select>
+
+                <label>Time in pipeline (days):</label>
+                <input type="number" name="time_in_pipeline" />
+
+                <!-- More fields as needed -->
+
+                <button id="saveButton" type="submit">Save</button>
+                <button id="cancelButton" type="button">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
